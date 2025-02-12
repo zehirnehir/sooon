@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>efsane test</title>
+    <style>
+        body { text-align: center; margin-top: 100px; font-family: Arial, sans-serif; }
+        input, button { padding: 10px; font-size: 16px; }
+        button { background-color: #28a745; color: white; border: none; cursor: pointer; }
+        button:hover { background-color: #218838; }
+
+        #resimler { margin-top: 20px; }
+        #resimler img { 
+            margin: 10px; 
+            width: 300px; /* Fotoğrafların boyutunu büyüttük */
+            height: auto; /* Oranlarını korusun */
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Güvenlik Sorusu!!!!--- >  Resimdeki gizlenmiş hayvanın adı nedir?</h2>
+    <input type="password" id="sifre" placeholder="sensin işte canım">
+    <button onclick="kontrolEt()">Giriş</button>
+    <p id="mesaj" style="color: red;"></p>
+
+    <!-- İlk 2 resim -->
+    <div id="resimler">
+        <img id="resim1" src="resim/resim1.jpg" alt="Resim 1">
+        <img id="resim2" src="resim/resim2.jpg" alt="Resim 2">
+    </div>
+
+    <script>
+        function kontrolEt() {
+            var girilenSifre = document.getElementById("sifre").value;
+            var dogruSifre = "maymun";  // 2. sayfanın şifresi
+            var resim1 = document.getElementById("resim1");
+            var resim2 = document.getElementById("resim2");
+
+            if (girilenSifre === dogruSifre) {
+                resim1.src = "yeni_resim1.jpg";
+                resim2.src = "yeni_resim2.jpg";
+                
+                setTimeout(function() {
+                    window.location.href = "sayfa3.html"; // 2 saniye sonra yeni sayfaya git
+                }, 2000);
+            } else {
+                document.getElementById("mesaj").innerText = "Hatalı şifre, tekrar deneyin!";
+            }
+        }
+
+        // Enter tuşuna basıldığında giriş butonuna basılmış gibi çalıştır
+        document.getElementById("sifre").addEventListener("keydown", function(event) {
+            if (event.key === "Enter") {
+                kontrolEt(); // Giriş fonksiyonunu çalıştır
+            }
+        });
+    </script>
+
+</body>
+</html>

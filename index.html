@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>efsane test</title>
+    <style>
+        body { text-align: center; margin-top: 100px; font-family: Arial, sans-serif; }
+        input, button { padding: 10px; font-size: 16px; }
+        button { background-color: #28a745; color: white; border: none; cursor: pointer; }
+        button:hover { background-color: #218838; }
+    </style>
+</head>
+<body>
+
+    <h2>Şifreyi buldun canım congrats!!!!! Şimdi aşağıdaki kutucuğa girerek güvenlik sorularına ilerle bakalım</h2>
+    <input type="password" id="sifre" placeholder="yaz bakem">
+    <button onclick="kontrolEt()">Giriş</button>
+    <p id="mesaj" style="color: red;"></p>
+
+    <script>
+        function kontrolEt() {
+            var girilenSifre = document.getElementById("sifre").value;
+            var dogruSifre = "1234";  // 1. sayfanın şifresi
+
+            if (girilenSifre === dogruSifre) {
+                window.location.href = "sayfa2.html"; // 2. sayfaya yönlendir
+            } else {
+                document.getElementById("mesaj").innerText = "Hatalı şifre, tekrar deneyin!";
+            }
+        }
+    </script>
+    
+    
+    <script>
+        function kontrolEt() {
+            var girilenSifre = document.getElementById("sifre").value;
+            var dogruSifre = "1234";  // 1. sayfanın şifresi
+    
+            if (girilenSifre === dogruSifre) {
+                window.location.href = "sayfa2.html"; // Doğruysa 2. sayfaya geç
+            } else {
+                alert("Hatalı şifre, tekrar deneyin!");
+            }
+        }
+    
+        // Enter tuşuna basıldığında giriş butonuna basılmış gibi çalıştır
+        document.getElementById("sifre").addEventListener("keydown", function(event) {
+            if (event.key === "Enter") {
+                kontrolEt();
+            }
+        });
+    </script>
+
+</body>
+</html>

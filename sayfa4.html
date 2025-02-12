@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>efsane test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        h1 {
+            font-size: 32px;
+        }
+
+        #resim {
+            width: 260px;
+            height: auto;
+            margin: 20px 0;
+        }
+
+        .butonlar {
+            margin: 20px 0;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin: 10px;
+            cursor: pointer;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+
+        /* Yanlış buton */
+        .wrong {
+            background-color: #dc3545;
+        }
+
+        .wrong:hover {
+            background-color: #c82333;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Bu resimde tam olarak hangi olay yaşanmıştır? En doğru şık aşağıdakilerden hangisidir?</h1> <!-- Başlık -->
+
+    <!-- Resim ekliyoruz -->
+    <img id="resim" src="resim/su.jpg" alt="Resim">
+
+    <!-- Butonlar -->
+    <div class="butonlar">
+        <button onclick="yanlisButon()"> A) Arda Nehir'e su şakası yapmış, Nehir intikam için Arda'ya suyla geri saldırmıştır.</button>
+        <button onclick="yanlisButon()"> B) Arda Nehir'e su şakası yapmış, üstüne küfür edip Nehir'i çok daha fazla sinirlendirmiştir.</button>
+        <button onclick="dogruButon()">C) Arda Nehir'e su şakası yapmış, Nehir intikam için geri saldırmış, üstüne Arda küfür edip '' küfür etmedim'' ifadelerini kullanarak suçtan kaçmaya çalışmış ve Nehir'i sinirlendirmiştir.</button>
+        <button onclick="yanlisButon()"> D) Su savaşı yapan genç çift, Arda'nın Nehir'e kıyamaması sonucu kendi elleriyle yere dökülen suyu temizlemesiyle son bulmuştur.</button>
+    </div>
+
+    <script>
+        // Doğru butona tıklandığında sayfaya geçiş
+        function dogruButon() {
+            window.location.href = "sayfa5.html"; // Doğru butona basıldığında sayfa5'e geçiş
+        }
+
+        // Yanlış butona tıklandığında uyarı
+        function yanlisButon() {
+            alert("en doğrusu hangisiyse onu seççen canım");
+        }
+    </script>
+
+</body>
+</html>

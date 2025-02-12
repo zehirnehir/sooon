@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>efsane test</title>
+    <style>
+        body { text-align: center; margin-top: 50px; font-family: Arial, sans-serif; }
+        input, button { padding: 10px; font-size: 16px; }
+        button { background-color: #28a745; color: white; border: none; cursor: pointer; }
+        button:hover { background-color: #218838; }
+
+        /* Resmin başlangıçta görünmesini sağladık */
+        #altResim {
+            margin-top: 20px;
+        }
+
+        #altResim img {
+            width: 300px; /* Resmin boyutunu ayarladık */
+            height: auto;
+        }
+
+        /* Yeni resim, başlangıçta gizli */
+        #yeniResim {
+            display: none;
+            margin-top: 20px;
+        }
+
+        #yeniResim img {
+            width: 400px; /* Yeni resmin boyutunu ayarladık */
+            height: auto;
+        }
+
+        /* Sağ alt köşede görünecek GIF */
+        #gif-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 100px;
+            cursor: pointer; /* GIF'e tıklanabilirlik ekledik */
+        }
+
+        #gif-container img {
+            width: 100%; /* GIF'in boyutunu ayarladık */
+            height: auto;
+        }
+
+    </style>
+</head>
+<body>
+
+    <h2>Güvenlik Sorusu 2!!!!! Resimdeki hayvanın adı nedir? Yardım almak için sağ alttaki GIF'e basabilirsin :*</h2>
+    <input type="password" id="sifre" placeholder="çok zor bir soru..">
+    <button onclick="kontrolEt()">Giriş</button>
+    <p id="mesaj" style="color: red;"></p>
+
+    <script>
+        function kontrolEt() {
+            var girilenSifre = document.getElementById("sifre").value;
+            var dogruSifre = "arda";  // 3. sayfanın şifresi
+
+            if (girilenSifre === dogruSifre) {
+                window.location.href = "sayfa4.html"; // Doğru şifre ile hemen yeni sayfaya geç
+            } else {
+                document.getElementById("mesaj").innerText = "çalıştır saksıyı canım iyi düşün";
+            }
+        }
+
+        // Enter tuşuna basıldığında giriş butonu çalışsın
+        document.getElementById("sifre").addEventListener("keydown", function(event) {
+            if (event.key === "Enter") {
+                kontrolEt();
+            }
+        });
+
+        // GIF'e tıklanınca yeni resim gösterilsin
+        function gifTıkla() {
+            var yeniResim = document.getElementById("yeniResim");
+            yeniResim.style.display = "block"; // Yeni resmi göster
+        }
+    </script>
+
+    <!-- Giriş kutusunun altına yerleştirilen resim -->
+    <div id="altResim">
+        <img src="resim/ortaeşek.jpg" alt="Alt Resim"> <!-- Burada "resim1.jpg" yerine bilgisayarınızdaki resmin adını yazın -->
+    </div>
+
+    <!-- Sağ alt köşeye GIF ekledik -->
+    <div id="gif-container" onclick="gifTıkla()">
+        <img src="resim/sendhelp.gif" alt="GIF"> <!-- Burada "gifiniz.gif" yerine kendi GIF dosyanızın adını yazın -->
+    </div>
+
+    <!-- GIF'e tıklandığında görünmesini sağladığımız yeni resim -->
+    <div id="yeniResim">
+        <img src="resim/ardaeşek.jpg" alt="Yeni Resim"> <!-- Burada "resim2.jpg" yerine bilgisayarınızdaki resmin adını yazın -->
+    </div>
+
+</body>
+</html>
